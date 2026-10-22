@@ -10,9 +10,9 @@ public class EightDirectionLook : MonoBehaviour
     private float targetY;
 
     [Header("Look Down")]
-    public float lookDownAngle = 55f;          // how far the camera tilts down
+    public float lookDownAngle = 55f;          
     public float lookDownSpeed = 8f;
-    public Key lookDownKey = Key.E;            // change to Key.Space if you prefer
+    public Key lookDownKey = Key.E;            
 
     private bool isLookingDown = false;
     private float currentXRotation = 0f;
@@ -35,7 +35,7 @@ public class EightDirectionLook : MonoBehaviour
 
     void HandleHorizontalTurn()
     {
-        if (isLookingDown) return; // can't turn while looking down
+        if (isLookingDown) return; 
 
         if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
@@ -66,6 +66,5 @@ public class EightDirectionLook : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotationSpeed);
     }
 
-    // Public so other scripts can check the state
     public bool IsLookingDown => isLookingDown;
 }
